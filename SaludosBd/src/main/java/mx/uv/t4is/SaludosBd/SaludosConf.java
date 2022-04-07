@@ -17,7 +17,6 @@ public class SaludosConf {
     @Bean
     public XsdSchema saludosSchema(){
         return new SimpleXsdSchema(new ClassPathResource("saludos.xsd"));
-
     }
 
     @Bean
@@ -28,6 +27,7 @@ public class SaludosConf {
         servlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean<>(servlet, "/ws/*");
     }
+    
     @Bean(name = "saludos")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema saludosSchema) {
         DefaultWsdl11Definition wsdl = new DefaultWsdl11Definition();
@@ -37,4 +37,5 @@ public class SaludosConf {
         wsdl.setSchema(saludosSchema);
         return wsdl;
     }
+
 }
